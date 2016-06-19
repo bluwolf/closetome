@@ -1,0 +1,21 @@
+
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+
+development:
+  <<: *default
+  database: closetome_dev_db
+  username: closetome
+
+test:
+    <<: *default
+    database: closetome_test_db
+    username: closetome
+
+production:
+    <<: *default
+    database: closetome_db
