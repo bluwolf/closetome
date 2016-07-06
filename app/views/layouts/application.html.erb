@@ -1,14 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Closetome</title>
+  <title>CloseToMe</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= render 'layouts/head' %>
 </head>
 <body>
-
-<%= yield %>
+  <%= render 'layouts/nav' %>
+  <%= yield %>
+  <%= render 'layouts/footer' %>
 
 </body>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCDm3DAQV2iui0SkDkCYy-BMxGfcxxPhA&libraries=places&callback=initMap" async defer></script>
+
+<script>
+  $( document ).ready(function() {
+     $(".button-collapse").sideNav();
+     $('.parallax').parallax();
+
+    });
+
+</script>
 </html>

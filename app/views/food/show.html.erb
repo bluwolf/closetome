@@ -1,0 +1,228 @@
+
+
+<div class="container-fluid" >
+  <div id="map-panel" class="col-lg-12">
+  </div>
+
+</div>
+
+<div class="container">
+  <div class="row" id="info-panel">
+    <div class="col s12 m3">
+          <div class="card">
+            <div class="card-image">
+              <img src="images/sample-1.jpg" class="place-image">
+              <!-- <span class="card-title" id="place-name">Card Title</span> -->
+            </div>
+            <div class="card-content" id="place-name">
+              <p>Name!</p>
+            </div>
+            <div class="card-action" id="place-link">
+              <a href="#">Navigate</a>
+            </div>
+          </div>
+      </div>
+      <div class="col s12 m3">
+            <div class="card">
+              <div class="card-image">
+                <img src="images/sample-1.jpg" id="place-image">
+
+              </div>
+              <div class="card-content">
+                <p>I am a very simple card. I am good at containing small bits of information.
+                I am convenient because I require little markup to use effectively.</p>
+              </div>
+              <div class="card-action" id="place-link">
+                <a href="#">Navigate</a>
+              </div>
+            </div>
+        </div>
+        <div class="col s12 m3">
+              <div class="card">
+                <div class="card-image">
+                  <img src="images/sample-1.jpg" id="place-image">
+
+                </div>
+                <div class="card-content">
+                  <p>I am a very simple card. I am good at containing small bits of information.
+                  I am convenient because I require little markup to use effectively.</p>
+                </div>
+                <div class="card-action" id="place-link">
+                  <a href="#">Navigate</a>
+                </div>
+              </div>
+          </div>
+          <div class="col s12 m3">
+                <div class="card">
+                  <div class="card-image">
+                    <img src="images/sample-1.jpg" id="place-image">
+
+                  </div>
+                  <div class="card-content">
+                    <p>I am a very simple card. I am good at containing small bits of information.
+                    I am convenient because I require little markup to use effectively.</p>
+                  </div>
+                  <div class="card-action" id="place-link">
+                    <a href="#">Navigate</a>
+                  </div>
+                </div>
+            </div>
+            <div class="col s12 m3">
+                  <div class="card">
+                    <div class="card-image">
+                      <img src="images/sample-1.jpg" id="place-image">
+                    </div>
+                    <div class="card-content">
+                      <p>I am a very simple card. I am good at containing small bits of information.
+                      I am convenient because I require little markup to use effectively.</p>
+                    </div>
+                    <div class="card-action" id="place-link">
+                      <a href="#">Navigate</a>
+                    </div>
+                  </div>
+              </div>
+              <div class="col s12 m3">
+                    <div class="card">
+                      <div class="card-image">
+                        <img src="images/sample-1.jpg" id="place-image">
+
+                      </div>
+                      <div class="card-content">
+                        <p>I am a very simple card. I am good at containing small bits of information.
+                        I am convenient because I require little markup to use effectively.</p>
+                      </div>
+                      <div class="card-action" id="place-link">
+                        <a href="#">Navigate</a>
+                      </div>
+                    </div>
+                </div>
+                <div class="col s12 m3">
+                      <div class="card">
+                        <div class="card-image">
+                          <img src="images/sample-1.jpg" id="place-image">
+
+                        </div>
+                        <div class="card-content">
+                          <p>I am a very simple card. I am good at containing small bits of information.
+                          I am convenient because I require little markup to use effectively.</p>
+                        </div>
+                        <div class="card-action" id="place-link">
+                          <a href="#">Navigate</a>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="col s12 m3">
+                        <div class="card">
+                          <div class="card-image">
+                            <img src="images/sample-1.jpg" id="place-image">
+
+                          </div>
+                          <div class="card-content">
+                            <p>I am a very simple card. I am good at containing small bits of information.
+                            I am convenient because I require little markup to use effectively.</p>
+                          </div>
+                          <div class="card-action" id="place-link">
+                            <a href="#">Navigate</a>
+                          </div>
+                        </div>
+                    </div>
+
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<script>
+// google map setup
+
+
+      var map;
+      var infowindow;
+      var currentLocation = {lat:0, lng:0};
+      var pyrmont;
+
+
+
+      // create map based on user location
+      function initMap() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(showPosition);
+        }
+        // alert("lat: " + currentLocation.lat + " longitude: " + currentLocation.lng);
+
+        pyrmont  = {lat: 34.0522, lng: -118.2437};
+
+
+        map = new google.maps.Map(document.getElementById('map-panel'), {
+          center: pyrmont,
+          zoom: 15
+        });
+        infowindow = new google.maps.InfoWindow();
+
+
+
+        var service = new google.maps.places.PlacesService(map);
+        service.nearbySearch({
+          location: pyrmont,
+          radius: 1000,
+          type: ['food'],
+          opennow: true
+        }, callback);
+      }
+
+      function showPosition(position) {
+
+          currentLocation = {lat: position.coords.latitude, lng:  position.coords.longitude};
+          pyrmont = currentLocation;
+          // alert("lat: " + currentLocation.lat + " longitude: " + currentLocation.lng);
+
+      }
+      // create marker and write to info panel
+      function callback(results, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          for (var i = 0; i < 8; i++) { // originally results.length, limit number of results to 8
+            createMarker(results[i]);
+            var panel = document.getElementById("info-panel");
+            panel.getElementsByClassName("card-content")[i].innerHTML = results[i].name;
+
+            var photos = results[i].photos;
+            if (photos) {
+               panel.getElementsByTagName("img")[i].src = photos[0].getUrl({'maxWidth': 250, 'maxHeight': 220});
+             }
+
+
+          }
+        }
+      }
+
+      function createMarker(place) {
+        var placeLoc = place.geometry.location;
+
+
+        var marker = new google.maps.Marker({
+          map: map,
+          position: place.geometry.location,
+          // icon: photos[0].getUrl({'maxWidth': 35, 'maxHeight': 35})
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.setContent(place.name);
+          infowindow.open(map, this);
+        });
+      }
+
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+       infoWindow.setPosition(pos);
+       infoWindow.setContent(browserHasGeolocation ?
+                             'Error: The Geolocation service failed.' :
+                             'Error: Your browser doesn\'t support geolocation.');
+     }
+
+
+</script>

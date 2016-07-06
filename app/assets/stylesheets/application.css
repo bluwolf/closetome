@@ -12,6 +12,5 @@
  *
  *= require materialize.min
  *= require bootstrap.min
- *= require bootstrap-typeahead-rails
  *= require_tree .
  */
