@@ -13,9 +13,9 @@ Rails.application.routes.draw do
   delete 'logout' => 'session#destroy'
 
   get 'food' => 'food#show'
-  get 'night' => 'attraction#show'
-  get 'mall' => "movie#show"
-  get 'lodging' => 'event#show'
+  get 'night' => 'nightlife#show'
+  get 'mall' => "mall#show"
+  get 'lodging' => 'lodging#show'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
