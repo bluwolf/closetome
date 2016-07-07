@@ -13,123 +13,112 @@
 <div class="container">
   <div class="row" id="info-panel">
     <div class="col s12 m3">
-          <div class="card">
+          <div class="card" >
             <div class="card-image">
               <img src="" class="place-image">
-              <!-- <span class="card-title" id="place-name">Card Title</span> -->
             </div>
-            <div class="card-content" id="place-name">
-              <p>Name!</p>
+            <div class="card-content">
+              <p class="place-name"></p>
             </div>
             <div class="card-action" id="place-link">
-              <a href="#">Navigate</a>
+              <a href="#" class="navigate">Navigate</a>
             </div>
           </div>
       </div>
       <div class="col s12 m3">
-            <div class="card">
+            <div class="card" >
               <div class="card-image">
-                <img src="" id="place-image">
-
+                <img src="" class="place-image">
               </div>
               <div class="card-content">
-                <p>I am a very simple card. I am good at containing small bits of information.
-                I am convenient because I require little markup to use effectively.</p>
+                <p class="place-name"></p>
               </div>
               <div class="card-action" id="place-link">
-                <a href="#">Navigate</a>
+                <a href="#" class="navigate">Navigate</a>
               </div>
             </div>
         </div>
         <div class="col s12 m3">
-              <div class="card">
+              <div class="card" >
                 <div class="card-image">
-                  <img src="" id="place-image">
-
+                  <img src="" class="place-image">
                 </div>
                 <div class="card-content">
-                  <p>I am a very simple card. I am good at containing small bits of information.
-                  I am convenient because I require little markup to use effectively.</p>
+                  <p class="place-name"></p>
                 </div>
                 <div class="card-action" id="place-link">
-                  <a href="#">Navigate</a>
+                  <a href="#" class="navigate">Navigate</a>
                 </div>
               </div>
           </div>
           <div class="col s12 m3">
-                <div class="card">
+                <div class="card" >
                   <div class="card-image">
-                    <img src="" id="place-image">
-
+                    <img src="" class="place-image">
                   </div>
                   <div class="card-content">
-                    <p>I am a very simple card. I am good at containing small bits of information.
-                    I am convenient because I require little markup to use effectively.</p>
+                    <p class="place-name"></p>
                   </div>
                   <div class="card-action" id="place-link">
-                    <a href="#">Navigate</a>
+                    <a href="#" class="navigate">Navigate</a>
                   </div>
                 </div>
             </div>
             <div class="col s12 m3">
-                  <div class="card">
+                  <div class="card" >
                     <div class="card-image">
-                      <img src="" id="place-image">
+                      <img src="" class="place-image">
                     </div>
                     <div class="card-content">
-                      <p>I am a very simple card. I am good at containing small bits of information.
-                      I am convenient because I require little markup to use effectively.</p>
+                      <p class="place-name"></p>
                     </div>
                     <div class="card-action" id="place-link">
-                      <a href="#">Navigate</a>
+                      <a href="#" class="navigate">Navigate</a>
                     </div>
                   </div>
               </div>
               <div class="col s12 m3">
-                    <div class="card">
+                    <div class="card" >
                       <div class="card-image">
-                        <img src="" id="place-image">
-
+                        <img src="" class="place-image">
                       </div>
                       <div class="card-content">
-                        <p>I am a very simple card. I am good at containing small bits of information.
-                        I am convenient because I require little markup to use effectively.</p>
+                        <p class="place-name"></p>
                       </div>
                       <div class="card-action" id="place-link">
-                        <a href="#">Navigate</a>
+                        <a href="#" class="navigate">Navigate</a>
                       </div>
                     </div>
                 </div>
                 <div class="col s12 m3">
-                      <div class="card">
+                      <div class="card" >
                         <div class="card-image">
-                          <img src="" id="place-image">
-
+                          <img src="" class="place-image">
                         </div>
                         <div class="card-content">
-                          <p>I am a very simple card. I am good at containing small bits of information.
-                          I am convenient because I require little markup to use effectively.</p>
+                          <p class="place-name"></p>
                         </div>
                         <div class="card-action" id="place-link">
-                          <a href="#">Navigate</a>
+                          <a href="#" class="navigate">Navigate</a>
                         </div>
                       </div>
                   </div>
                   <div class="col s12 m3">
-                        <div class="card">
+                        <div class="card" >
                           <div class="card-image">
-                            <img src="" id="place-image">
-
+                            <img src="" class="place-image">
                           </div>
                           <div class="card-content">
-                            <p>I am a very simple card. I am good at containing small bits of information.
-                            I am convenient because I require little markup to use effectively.</p>
+                            <p class="place-name"></p>
                           </div>
                           <div class="card-action" id="place-link">
-                            <a href="#">Navigate</a>
+                            <a href="#" class="navigate">Navigate</a>
                           </div>
                         </div>
                     </div>
+
+
+
 
 
   </div>
@@ -144,35 +133,57 @@
 
 <script>
 // google map setup
+      var options = [
+         {selector: 'card', offset: 200, callback: '$(this).addClass("animated")' },
+      ];
+      Materialize.scrollFire(options);
 
 
       var map;
       var infowindow;
       var initialLocation;
       var currentLocation;
+      var service;
+
 
       // create map based on user location
       function initMap() {
           initialLocation  = {lat: 40.7128, lng: -74.0059}; // new york
-        map = new google.maps.Map(document.getElementById('map-panel'), {
+          map = new google.maps.Map(document.getElementById('map-panel'), {
           center: initialLocation,
           zoom: 15,
           styles: [{"featureType":"landscape","stylers":[{"saturation":-100},{"lightness":60}]},{"featureType":"road.local","stylers":[{"saturation":-100},{"lightness":40},{"visibility":"on"}]},{"featureType":"transit","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"administrative.province","stylers":[{"visibility":"off"}]},{"featureType":"water","stylers":[{"visibility":"on"},{"lightness":30}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ef8c25"},{"lightness":40}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"visibility":"off"}]},{"featureType":"poi.park","elementType":"geometry.fill","stylers":[{"color":"#b6c54c"},{"lightness":40},{"saturation":-40}]},{}]
         });
         infowindow = new google.maps.InfoWindow();
+        $( "#info-panel" ).fadeOut( 100, function() {
+        });
 
 
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function (position) {
                 currentLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
                 map.setCenter(currentLocation);
-                var service = new google.maps.places.PlacesService(map);
+
+                // create marker for current user location
+                var userIcon = {
+                  url: "<%= asset_url('icon.png')%>",
+                  scaledSize: new google.maps.Size(50, 50)
+                };
+                var marker = new google.maps.Marker({
+                  map: map,
+                  position: currentLocation,
+                  icon: userIcon,
+                });
+
+                service = new google.maps.places.PlacesService(map);
                 service.nearbySearch({
                   location: currentLocation,
                   radius: 1000,
                   type: ['food'],
                   opennow: true
                 }, callback);
+
+
             });
         }
       }
@@ -183,15 +194,41 @@
 
         if (status === google.maps.places.PlacesServiceStatus.OK) {
           for (var i = 0; i < 8; i++) { // originally results.length, limit number of results to 8
-            createMarker(results[i]);
-            var panel = document.getElementById("info-panel");
-            panel.getElementsByClassName("card-content")[i].innerHTML = results[i].name;
+            createMarker(results[i]); // create marker for results
 
+
+
+            var panel = document.getElementById("info-panel");
+            panel.getElementsByClassName("place-name")[i].innerHTML = results[i].name;
+
+            service.getDetails({
+                placeId: results[i].place_id,
+              }, function(place, status) {
+                if (status === google.maps.places.PlacesServiceStatus.OK) {
+                  var panel = document.getElementById("info-panel");
+
+                  for (var j = 0; j<8; j++){
+                    if(panel.getElementsByClassName("place-name")[j].innerHTML == place.name){
+
+                      panel.getElementsByClassName("navigate")[j].innerHTML = place.formatted_address;
+                      break;
+                    }
+                  }
+
+
+                }
+              });
+
+            //populate web content
+            var panel = document.getElementById("info-panel");
+            panel.getElementsByClassName("place-name")[i].innerHTML = results[i].name;
+            // panel.getElementsByClassName("navigate")[i].innerHTML = results[i].name;
             var photos = results[i].photos;
             if (photos) {
                panel.getElementsByTagName("img")[i].src = photos[0].getUrl({'maxWidth': 250, 'maxHeight': 220});
              }
-
+             // fadeIn after population done
+             $("#info-panel").fadeIn(900);
 
           }
         }
@@ -199,6 +236,7 @@
 
       function createMarker(place) {
         var placeLoc = place.geometry.location;
+
 
 
         var marker = new google.maps.Marker({

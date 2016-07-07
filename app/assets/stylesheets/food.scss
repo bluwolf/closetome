@@ -8,15 +8,10 @@
   position: absolute;
 }
 
-.map_canvas img {
-    max-width: none;
-}
-
 .container-fluid{
   height: 400px;
 
 }
-
 
 .container{
   margin-top: 50px;
@@ -26,4 +21,9 @@
 }
 .card{
   height: 400px;
+}
+.place-name{
+
+  font-weight:900;
+  font-size: 20px;
 }
