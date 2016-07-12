@@ -8,7 +8,7 @@ nav {
   text-decoration: none;
 }
 .hide-on-med-and-down a:hover{
-  color: #ff5722;
+  color: #ff9800;
   text-decoration: none;
 }
 
@@ -62,12 +62,22 @@ nav ul li:hover{
 
         <a  data-activates="mobile-demo" class="button-collapse"><i class="fa fa-bars" style="padding-left: 10px;" ></i></a>
 
-        <ul class="right hide-on-med-and-down" style="width: 1000px;">
+        <ul class="right hide-on-med-and-down" style="width: 1100px;">
           <% if current_user %>
+            <div class="row col-lg-12">
               <ul>
-                <li><%= current_user.name %></li>
-                <li><%= link_to "Log Out", logout_path, method: "delete", class: "set-font-size"%></li>
+                <li class="col l2"><%= link_to "Home",root_url, class: "navbar-nagivation-font  "%></li>
+                <li class="col l2"><%= link_to "Food",'food', class: "navbar-nagivation-font  "%></li>
+                <li class="col l2"><%= link_to "NightLife",'night', class: "navbar-nagivation-font  "%></li>
+                <li class="col l2"><%= link_to "Lodging",'lodging', class: "navbar-nagivation-font "%></li>
+                <li class="col l2"><%= link_to "Mall",'mall', class: "navbar-nagivation-font"%></li>
+                <li class="col l1 user-font-size"><%= current_user.name %></li>
+                <li class="col l1"><%= link_to "Log Out", logout_path,  method: "delete",class: "user-font-size" %></li>
+
               </ul>
+
+            </div>
+
             <% else %>
             <div class="row col-lg-12">
               <ul >
