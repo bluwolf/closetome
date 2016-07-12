@@ -5,13 +5,28 @@
     <div class="row col-lg-5">
       <ul >
 
-          <li class="col l2 col-xs-3"><%= link_to "Food",'food', class: "waves-effect waves-light btn orange  "%></li>
-          <li class="col l3 col-xs-4"><%= link_to "NightLife",'night', class: "waves-effect waves-light btn orange  "%></li>
-          <li class="col l3 col-xs-3"><%= link_to "Lodging",'lodging', class: "waves-effect waves-light btn orange "%></li>
-          <li class="col l2 col-xs-3"><%= link_to "Mall",'mall', class: "waves-effect waves-light btn orange"%></li>
+          <li class="col l2 col-xs-3 landing-button"><%= link_to "Food",'food', class: "waves-effect waves-light btn orange  "%></li>
+          <li class="col l3 col-xs-4 landing-button"><%= link_to "NightLife",'night', class: "waves-effect waves-light btn orange  "%></li>
+          <li class="col l3 col-xs-3 landing-button"><%= link_to "Lodging",'lodging', class: "waves-effect waves-light btn orange "%></li>
+          <li class="col l2 col-xs-3 landing-button"><%= link_to "Mall",'mall', class: "waves-effect waves-light btn orange"%></li>
 
       </ul>
     </div>
 
   </div>
 </div>
+
+<script>
+
+
+$( document ).ready(function() {
+  // $(".landing-button").effect( "shake" );
+  $(".landing-button").fadeOut(10);
+  $(".landing-button").fadeIn(3000);
+  // $(".landing-button").fadeIn(2000);
+
+});
+
+
+
+</script>
