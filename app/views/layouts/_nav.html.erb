@@ -40,6 +40,9 @@ nav {
 
 
 }
+.side-nagivation-font{
+  color: black !important;
+}
 
 
 nav ul li:hover{
@@ -60,7 +63,7 @@ nav ul li:hover{
 
 
 
-        <a  data-activates="mobile-demo" class="button-collapse"><i class="fa fa-bars" style="padding-left: 10px;" ></i></a>
+        <a  data-activates="mobile-demo" class="button-collapse"><i class="fa fa-bars" style="padding-left: 10px; color:black;" ></i></a>
 
         <ul class="right hide-on-med-and-down" style="width: 1100px;">
           <% if current_user %>
@@ -94,27 +97,35 @@ nav ul li:hover{
         </ul>
 
         <ul class="side-nav white" id="mobile-demo">
-          <%= link_to root_url do %>
           <%= link_to "CloseToMe", root_url, class: "title"%>
-          <% end %>
 
           <% if current_user %>
-              <ul>
-                <li><%= current_user.name %></li>
-                <li><%= link_to "Log Out", logout_path, method: "delete", class: "set-font-size"%></li>
-              </ul>
+            <ul>
+              <li class="col l1 side-nagivation-font"><%= current_user.name %></li>
+              <li class="col l1"><%= link_to "Log Out", logout_path,  method: "delete",class: "side-nagivation-font" %></li>
+              <br>
+
+              <li class="col l2"><%= link_to "Home",root_url, class: "side-nagivation-font  "%></li>
+              <li class="col l2"><%= link_to "Food",'food', class: "side-nagivation-font  "%></li>
+              <li class="col l2"><%= link_to "NightLife",'night', class: "side-nagivation-font  "%></li>
+              <li class="col l2"><%= link_to "Lodging",'lodging', class: "side-nagivation-font "%></li>
+              <li class="col l2"><%= link_to "Mall",'mall', class: "side-nagivation-font"%></li>
+
+
+            </ul>
+
             <% else %>
-            <div class="row col-lg-12">
+
               <ul >
-                  <li class="col l2"><%= link_to "Home",root_url, class: "navbar-nagivation-font  "%></li>
-                  <li class="col l2"><%= link_to "Food",'food', class: "navbar-nagivation-font  "%></li>
-                  <li class="col l2"><%= link_to "NightLife",'night', class: "navbar-nagivation-font  "%></li>
-                  <li class="col l2"><%= link_to "Lodging",'lodging', class: "navbar-nagivation-font "%></li>
-                  <li class="col l2"><%= link_to "Mall",'mall', class: "navbar-nagivation-font"%></li>
-                  <li class="col l1"><%= link_to "Log In", 'login', class: "user-font-size " %></li>
-                  <li class="col l1"><%= link_to "Register", 'signup', class: "user-font-size" %></li>
+                <li class="col l1"><%= link_to "Log In", 'login', class: "side-nagivation-font " %></li>
+                <li class="col l1"><%= link_to "Register", 'signup', class: "side-nagivation-font" %></li>
+                <br>
+                  <li class="col l2"><%= link_to "Food",'food', class: "side-nagivation-font  "%></li>
+                  <li class="col l2"><%= link_to "NightLife",'night', class: "side-nagivation-font  "%></li>
+                  <li class="col l2"><%= link_to "Lodging",'lodging', class: "side-nagivation-font "%></li>
+                  <li class="col l2"><%= link_to "Mall",'mall', class: "side-nagivation-font"%></li>
+
               </ul>
-            </div>
            <% end %>
         </ul>
 
