@@ -19,103 +19,16 @@
             </div>
             <div class="card-content">
               <p class="place-name"></p>
+              <p class="place-rating"></p>
+              <p class="place-pricelevel"></p>
             </div>
             <div class="card-action" id="place-link">
-              <a href="#" class="navigate">Navigate</a>
+              <a href="#" target="_blank" class="place-navigate">Navigate</a>
+              <a href="#" target="_blank" class="place-website">Home Page</a>
             </div>
           </div>
       </div>
-      <div class="col s12 m3">
-            <div class="card" >
-              <div class="card-image">
-                <img src="" class="place-image">
-              </div>
-              <div class="card-content">
-                <p class="place-name"></p>
-              </div>
-              <div class="card-action" id="place-link">
-                <a href="#" class="navigate">Navigate</a>
-              </div>
-            </div>
-        </div>
-        <div class="col s12 m3">
-              <div class="card" >
-                <div class="card-image">
-                  <img src="" class="place-image">
-                </div>
-                <div class="card-content">
-                  <p class="place-name"></p>
-                </div>
-                <div class="card-action" id="place-link">
-                  <a href="#" class="navigate">Navigate</a>
-                </div>
-              </div>
-          </div>
-          <div class="col s12 m3">
-                <div class="card" >
-                  <div class="card-image">
-                    <img src="" class="place-image">
-                  </div>
-                  <div class="card-content">
-                    <p class="place-name"></p>
-                  </div>
-                  <div class="card-action" id="place-link">
-                    <a href="#" class="navigate">Navigate</a>
-                  </div>
-                </div>
-            </div>
-            <div class="col s12 m3">
-                  <div class="card" >
-                    <div class="card-image">
-                      <img src="" class="place-image">
-                    </div>
-                    <div class="card-content">
-                      <p class="place-name"></p>
-                    </div>
-                    <div class="card-action" id="place-link">
-                      <a href="#" class="navigate">Navigate</a>
-                    </div>
-                  </div>
-              </div>
-              <div class="col s12 m3">
-                    <div class="card" >
-                      <div class="card-image">
-                        <img src="" class="place-image">
-                      </div>
-                      <div class="card-content">
-                        <p class="place-name"></p>
-                      </div>
-                      <div class="card-action" id="place-link">
-                        <a href="#" class="navigate">Navigate</a>
-                      </div>
-                    </div>
-                </div>
-                <div class="col s12 m3">
-                      <div class="card" >
-                        <div class="card-image">
-                          <img src="" class="place-image">
-                        </div>
-                        <div class="card-content">
-                          <p class="place-name"></p>
-                        </div>
-                        <div class="card-action" id="place-link">
-                          <a href="#" class="navigate">Navigate</a>
-                        </div>
-                      </div>
-                  </div>
-                  <div class="col s12 m3">
-                        <div class="card" >
-                          <div class="card-image">
-                            <img src="" class="place-image">
-                          </div>
-                          <div class="card-content">
-                            <p class="place-name"></p>
-                          </div>
-                          <div class="card-action" id="place-link">
-                            <a href="#" class="navigate">Navigate</a>
-                          </div>
-                        </div>
-                    </div>
+
 
 
 
@@ -209,8 +122,31 @@
 
                   for (var j = 0; j<8; j++){
                     if(panel.getElementsByClassName("place-name")[j].innerHTML == place.name){
+                      panel.getElementsByClassName("place-rating")[j].innerHTML = "Rating: " + place.rating;
 
-                      panel.getElementsByClassName("navigate")[j].innerHTML = place.url;
+                      switch (place.price_level) {
+                        case 0:
+                          panel.getElementsByClassName("place-pricelevel")[j].innerHTML = "Price: Free";
+                          break;
+                        case 1:
+                          panel.getElementsByClassName("place-pricelevel")[j].innerHTML = "Price: Inexpensive";
+                          break;
+                        case 2:
+                          panel.getElementsByClassName("place-pricelevel")[j].innerHTML = "Price: Moderate";
+                          break;
+                        case 3:
+                          panel.getElementsByClassName("place-pricelevel")[j].innerHTML = "Price: Expensive";
+                          break;
+                        case 4:
+                          panel.getElementsByClassName("place-pricelevel")[j].innerHTML = "Price: Very Expensive";
+                          break;
+
+
+                      }
+                      // panel.getElementsByClassName("place-pricelevel")[j].innerHTML = "Price: " +place.price_level;
+
+                      panel.getElementsByClassName("place-navigate")[j].href = place.url;
+                      panel.getElementsByClassName("place-website")[j].href = place.website;
                       break;
                     }
                   }
