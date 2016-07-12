@@ -2,7 +2,9 @@
 
 <div class="container-fluid" >
   <div class="row">
+
     <div id="map-panel" class="col-lg-12 card-panel">
+
     </div>
 
   </div>
@@ -18,16 +20,152 @@
               <img src="" class="place-image">
             </div>
             <div class="card-content">
-              <p class="place-name"></p>
-              <p class="place-rating"></p>
-              <p class="place-pricelevel"></p>
+              <div >
+                <p class="place-name"></p>
+                <p class="place-rating"></p>
+                <p class="place-pricelevel"></p>
+              </div>
+
             </div>
             <div class="card-action" id="place-link">
-              <a href="#" target="_blank" class="place-navigate">Navigate</a>
               <a href="#" target="_blank" class="place-website">Home Page</a>
+              <a href="#" target="_blank" class="place-navigate waves-effect waves-light btn orange ">Navigate</a>
             </div>
           </div>
       </div>
+      <div class="col s12 m3">
+            <div class="card" >
+              <div class="card-image">
+                <img src="" class="place-image">
+              </div>
+              <div class="card-content">
+                <div >
+                  <p class="place-name"></p>
+                  <p class="place-rating"></p>
+                  <p class="place-pricelevel"></p>
+                </div>
+
+              </div>
+              <div class="card-action" id="place-link">
+                <a href="#" target="_blank" class="place-website">Home Page</a>
+                <a href="#" target="_blank" class="place-navigate waves-effect waves-light btn orange ">Navigate</a>
+              </div>
+            </div>
+        </div>
+        <div class="col s12 m3">
+              <div class="card" >
+                <div class="card-image">
+                  <img src="" class="place-image">
+                </div>
+                <div class="card-content">
+                  <div >
+                    <p class="place-name"></p>
+                    <p class="place-rating"></p>
+                    <p class="place-pricelevel"></p>
+                  </div>
+
+                </div>
+                <div class="card-action" id="place-link">
+                  <a href="#" target="_blank" class="place-website">Home Page</a>
+                  <a href="#" target="_blank" class="place-navigate waves-effect waves-light btn orange ">Navigate</a>
+                </div>
+              </div>
+          </div>
+          <div class="col s12 m3">
+                <div class="card" >
+                  <div class="card-image">
+                    <img src="" class="place-image">
+                  </div>
+                  <div class="card-content">
+                    <div >
+                      <p class="place-name"></p>
+                      <p class="place-rating"></p>
+                      <p class="place-pricelevel"></p>
+                    </div>
+
+                  </div>
+                  <div class="card-action" id="place-link">
+                    <a href="#" target="_blank" class="place-website">Home Page</a>
+                    <a href="#" target="_blank" class="place-navigate waves-effect waves-light btn orange ">Navigate</a>
+                  </div>
+                </div>
+            </div>
+            <div class="col s12 m3">
+                  <div class="card" >
+                    <div class="card-image">
+                      <img src="" class="place-image">
+                    </div>
+                    <div class="card-content">
+                      <div >
+                        <p class="place-name"></p>
+                        <p class="place-rating"></p>
+                        <p class="place-pricelevel"></p>
+                      </div>
+
+                    </div>
+                    <div class="card-action" id="place-link">
+                      <a href="#" target="_blank" class="place-website">Home Page</a>
+                      <a href="#" target="_blank" class="place-navigate waves-effect waves-light btn orange ">Navigate</a>
+                    </div>
+                  </div>
+              </div>
+              <div class="col s12 m3">
+                    <div class="card" >
+                      <div class="card-image">
+                        <img src="" class="place-image">
+                      </div>
+                      <div class="card-content">
+                        <div >
+                          <p class="place-name"></p>
+                          <p class="place-rating"></p>
+                          <p class="place-pricelevel"></p>
+                        </div>
+
+                      </div>
+                      <div class="card-action" id="place-link">
+                        <a href="#" target="_blank" class="place-website">Home Page</a>
+                        <a href="#" target="_blank" class="place-navigate waves-effect waves-light btn orange ">Navigate</a>
+                      </div>
+                    </div>
+                </div>
+                <div class="col s12 m3">
+                      <div class="card" >
+                        <div class="card-image">
+                          <img src="" class="place-image">
+                        </div>
+                        <div class="card-content">
+                          <div >
+                            <p class="place-name"></p>
+                            <p class="place-rating"></p>
+                            <p class="place-pricelevel"></p>
+                          </div>
+
+                        </div>
+                        <div class="card-action" id="place-link">
+                          <a href="#" target="_blank" class="place-website">Home Page</a>
+                          <a href="#" target="_blank" class="place-navigate waves-effect waves-light btn orange ">Navigate</a>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="col s12 m3">
+                        <div class="card" >
+                          <div class="card-image">
+                            <img src="" class="place-image">
+                          </div>
+                          <div class="card-content">
+                            <div >
+                              <p class="place-name"></p>
+                              <p class="place-rating"></p>
+                              <p class="place-pricelevel"></p>
+                            </div>
+
+                          </div>
+                          <div class="card-action" id="place-link">
+                            <a href="#" target="_blank" class="place-website">Home Page</a>
+                            <a href="#" target="_blank" class="place-navigate waves-effect waves-light btn orange ">Navigate</a>
+                          </div>
+                        </div>
+                    </div>
 
 
 
@@ -70,6 +208,7 @@
         infowindow = new google.maps.InfoWindow();
         $( "#info-panel" ).fadeOut( 100, function() {
         });
+        //  $("#map-panel").fadeOut(100);
 
 
         if (navigator.geolocation) {
@@ -122,7 +261,7 @@
 
                   for (var j = 0; j<8; j++){
                     if(panel.getElementsByClassName("place-name")[j].innerHTML == place.name){
-                      panel.getElementsByClassName("place-rating")[j].innerHTML = "Rating: " + place.rating;
+                      panel.getElementsByClassName("place-rating")[j].innerHTML = "Rating: " + place.rating + "/5";
 
                       switch (place.price_level) {
                         case 0:
@@ -165,6 +304,8 @@
              }
              // fadeIn after population done
              $("#info-panel").fadeIn(900);
+
+            //  $("#map-panel").fadeIn(900);
 
           }
         }
