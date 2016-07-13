@@ -1,3 +1,17 @@
+<div class="preloader-background">
+  <div class="preloader-wrapper big active">
+   <div class="spinner-layer spinner-yellow-only">
+     <div class="circle-clipper left">
+       <div class="circle"></div>
+     </div><div class="gap-patch">
+       <div class="circle"></div>
+     </div><div class="circle-clipper right">
+       <div class="circle"></div>
+     </div>
+   </div>
+  </div>
+</div>
+
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1 class="display-3">Close To Me</h1>
@@ -22,8 +36,11 @@
 $( document ).ready(function() {
   $(".landing-button").fadeOut(10);
   $(".landing-button").fadeIn(3000);
+});
 
-
+$(window).load(function() {
+  $(".preloader-background").remove();
+    // this will fire after the entire page is loaded, including images
 });
 
 
